@@ -10,75 +10,77 @@
       theme: {
         extend: {
           colors: {
-            brandCyan: '#00B4FF',
+            brandCyan: '#00D2FF',
           }
         }
       }
     }
   </script>
 </head>
-<body class="bg-black text-gray-100 min-h-screen flex items-center justify-center p-4">
+<body class="bg-[#0b0c10] text-gray-100 min-h-screen flex items-center justify-center p-3">
 
-  <div class="max-w-md w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-2xl">
+  <div class="max-w-md w-full bg-[#12141c] border border-zinc-800/80 rounded-3xl p-6 shadow-2xl relative">
     
     <!-- Logo de Caverfar -->
-    <div class="flex justify-center mb-5">
-      <img src="IMG_20260725_235928.jpg" alt="Caverfar - Restaura tu salud" class="h-12 object-contain filter brightness-105">
+    <div class="flex justify-center mb-4">
+      <div class="bg-white px-4 py-2 rounded-xl shadow-md inline-block">
+        <img src="logo.jpg" alt="Caverfar - Restaura tu salud" class="h-10 object-contain">
+      </div>
     </div>
 
     <!-- Header -->
-    <div class="text-center mb-6">
-      <span class="text-xs uppercase tracking-widest text-brandCyan font-semibold">Evaluación Confidencial</span>
-      <h1 class="text-xl font-bold text-white mt-1">Orientación de Salud Masculina</h1>
-      <p class="text-xs text-zinc-400 mt-1">Responde 4 breves preguntas para identificar la mejor opción para ti.</p>
+    <div class="text-center mb-5">
+      <span class="text-[11px] uppercase tracking-widest text-[#00D2FF] font-bold drop-shadow-[0_0_8px_rgba(0,210,255,0.5)]">Evaluación Confidencial</span>
+      <h1 class="text-lg font-bold text-white mt-1">Orientación de Salud Masculina</h1>
+      <p class="text-xs text-zinc-400 mt-1 px-2">Responde 4 breves preguntas para identificar la mejor opción para ti.</p>
     </div>
 
     <!-- Progreso -->
-    <div id="progress-container" class="w-full bg-zinc-800 h-1.5 rounded-full mb-6 overflow-hidden">
-      <div id="progress-bar" class="bg-brandCyan h-full w-1/4 transition-all duration-300"></div>
+    <div id="progress-container" class="w-full bg-zinc-800/80 h-1.5 rounded-full mb-6 overflow-hidden">
+      <div id="progress-bar" class="bg-[#00D2FF] h-full w-1/4 transition-all duration-300 shadow-[0_0_10px_#00D2FF]"></div>
     </div>
 
     <!-- Cuestionario -->
     <form id="quiz-form">
       
       <!-- Pregunta 1 -->
-      <div id="step-1" class="quiz-step space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-200">1. ¿Con qué frecuencia experimentas dificultad para mantener la firmeza?</h2>
-        <div class="space-y-2">
-          <button type="button" onclick="selectAnswer(1, 'Ocasionalmente (estrés/fatiga)')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Ocasionalmente (estrés o fatiga)</button>
-          <button type="button" onclick="selectAnswer(1, 'Frecuentemente en las últimas semanas')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Frecuentemente en las últimas semanas</button>
-          <button type="button" onclick="selectAnswer(1, 'Casi siempre / de forma continua')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Casi siempre o de forma continua</button>
+      <div id="step-1" class="quiz-step space-y-3">
+        <h2 class="text-sm font-medium text-zinc-200 mb-3">1. ¿Con qué frecuencia experimentas dificultad para mantener la firmeza?</h2>
+        <div class="space-y-3">
+          <button type="button" onclick="selectAnswer(1, 'Ocasionalmente (estrés/fatiga)')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Ocasionalmente (estrés o fatiga)</button>
+          <button type="button" onclick="selectAnswer(1, 'Frecuentemente en las últimas semanas')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Frecuentemente en las últimas semanas</button>
+          <button type="button" onclick="selectAnswer(1, 'Casi siempre / de forma continua')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Casi siempre o de forma continua</button>
         </div>
       </div>
 
       <!-- Pregunta 2 -->
-      <div id="step-2" class="quiz-step hidden space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-200">2. ¿Cuál consideras que es el factor principal en este momento?</h2>
-        <div class="space-y-2">
-          <button type="button" onclick="selectAnswer(2, 'Estrés / Ansiedad')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Estrés laboral, ansiedad o presión emocional</button>
-          <button type="button" onclick="selectAnswer(2, 'Cambios físicos / Salud')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Cambios físicos relacionados con la edad o salud</button>
-          <button type="button" onclick="selectAnswer(2, 'Combinación / No estoy seguro')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">No estoy seguro / Una combinación de factores</button>
+      <div id="step-2" class="quiz-step hidden space-y-3">
+        <h2 class="text-sm font-medium text-zinc-200 mb-3">2. ¿Cuál consideras que es el factor principal en este momento?</h2>
+        <div class="space-y-3">
+          <button type="button" onclick="selectAnswer(2, 'Estrés / Ansiedad')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Estrés laboral y emocional (ansiedad)</button>
+          <button type="button" onclick="selectAnswer(2, 'Cambios físicos / Salud')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Cambios físicos y edad</button>
+          <button type="button" onclick="selectAnswer(2, 'Combinación / No estoy seguro')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">No estoy seguro (o combinación)</button>
         </div>
       </div>
 
       <!-- Pregunta 3 -->
-      <div id="step-3" class="quiz-step hidden space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-200">3. ¿Qué tipo de solución o acompañamiento buscas principalmente?</h2>
-        <div class="space-y-2">
-          <button type="button" onclick="selectAnswer(3, 'Efectividad rápida')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Efectividad rápida para momentos puntuales</button>
-          <button type="button" onclick="selectAnswer(3, 'Tratamiento discreto y continuo')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Un tratamiento discreto y continuo</button>
-          <button type="button" onclick="selectAnswer(3, 'Orientación privada')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Orientación privada para evaluar opciones disponibles</button>
+      <div id="step-3" class="quiz-step hidden space-y-3">
+        <h2 class="text-sm font-medium text-zinc-200 mb-3">3. ¿Qué tipo de solución o acompañamiento buscas principalmente?</h2>
+        <div class="space-y-3">
+          <button type="button" onclick="selectAnswer(3, 'Efectividad rápida')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Efectividad rápida para momentos puntuales</button>
+          <button type="button" onclick="selectAnswer(3, 'Tratamiento discreto y continuo')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Un tratamiento discreto y continuo</button>
+          <button type="button" onclick="selectAnswer(3, 'Orientación privada')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Orientación privada para evaluar opciones disponibles</button>
         </div>
       </div>
 
       <!-- Pregunta 4 -->
-      <div id="step-4" class="quiz-step hidden space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-200">4. ¿Has utilizado fármacos orales (pastillas) anteriormente y has obtenido el resultado esperado?</h2>
-        <div class="space-y-2">
-          <button type="button" onclick="selectAnswer(4, 'Sí, me han funcionado bien')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Sí, me han funcionado bien cuando los he necesitado</button>
-          <button type="button" onclick="selectAnswer(4, 'Efecto no esperado o dudas')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Los he probado, pero siento que el efecto no es el esperado o me generan dudas</button>
-          <button type="button" onclick="selectAnswer(4, 'Nunca los he probado')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">No, nunca los he probado y prefiero conocer cómo funcionan</button>
-          <button type="button" onclick="selectAnswer(4, 'Prefiero evitar pastillas')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Prefiero evitar pastillas y buscar alternativas diferentes</button>
+      <div id="step-4" class="quiz-step hidden space-y-3">
+        <h2 class="text-sm font-medium text-zinc-200 mb-3">4. ¿Has utilizado fármacos orales (pastillas) anteriormente y has obtenido el resultado esperado?</h2>
+        <div class="space-y-3">
+          <button type="button" onclick="selectAnswer(4, 'Sí, me han funcionado bien')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Sí, me han funcionado bien cuando los he necesitado</button>
+          <button type="button" onclick="selectAnswer(4, 'Efecto no esperado o dudas')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Los he probado, pero siento que el efecto no es el esperado o me generan dudas</button>
+          <button type="button" onclick="selectAnswer(4, 'Nunca los he probado')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">No, nunca los he probado y prefiero conocer cómo funcionan</button>
+          <button type="button" onclick="selectAnswer(4, 'Prefiero evitar pastillas')" class="w-full text-left p-3.5 rounded-2xl border border-zinc-700/60 bg-[#171a24] hover:border-[#00D2FF] hover:shadow-[0_0_12px_rgba(0,210,255,0.25)] transition text-sm">Prefiero evitar pastillas y buscar alternativas diferentes</button>
         </div>
       </div>
 
@@ -86,7 +88,7 @@
 
     <!-- Resultados -->
     <div id="results" class="hidden text-center space-y-5 py-2">
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brandCyan/10 text-brandCyan">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#00D2FF]/10 text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.3)]">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
@@ -98,7 +100,7 @@
         </p>
       </div>
       
-      <a id="whatsapp-btn" href="#" target="_blank" class="block w-full py-3 px-4 bg-brandCyan hover:bg-brandCyan/90 text-black font-semibold rounded-xl text-sm transition shadow-lg shadow-brandCyan/20">
+      <a id="whatsapp-btn" href="#" target="_blank" class="block w-full py-3.5 px-4 bg-[#00D2FF] hover:bg-[#00bcec] text-black font-bold rounded-2xl text-sm transition shadow-[0_0_20px_rgba(0,210,255,0.4)]">
         Consultar Opciones por WhatsApp
       </a>
 
