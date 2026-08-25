@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evaluación de Salud Sexual</title>
+  <title>Evaluación de Salud Sexual - Caverfar</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,16 +21,21 @@
 
   <div class="max-w-md w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-2xl">
     
+    <!-- Logo de Caverfar -->
+    <div class="flex justify-center mb-5">
+      <img src="logo.jpg" alt="Caverfar - Restaura tu salud" class="h-12 object-contain filter brightness-105">
+    </div>
+
     <!-- Header -->
     <div class="text-center mb-6">
       <span class="text-xs uppercase tracking-widest text-brandCyan font-semibold">Evaluación Confidencial</span>
       <h1 class="text-xl font-bold text-white mt-1">Orientación de Salud Masculina</h1>
-      <p class="text-xs text-zinc-400 mt-1">Responde 3 preguntas breves para identificar la mejor opción para ti.</p>
+      <p class="text-xs text-zinc-400 mt-1">Responde 4 breves preguntas para identificar la mejor opción para ti.</p>
     </div>
 
     <!-- Progreso -->
     <div id="progress-container" class="w-full bg-zinc-800 h-1.5 rounded-full mb-6 overflow-hidden">
-      <div id="progress-bar" class="bg-brandCyan h-full w-1/3 transition-all duration-300"></div>
+      <div id="progress-bar" class="bg-brandCyan h-full w-1/4 transition-all duration-300"></div>
     </div>
 
     <!-- Cuestionario -->
@@ -66,6 +71,17 @@
         </div>
       </div>
 
+      <!-- Pregunta 4 -->
+      <div id="step-4" class="quiz-step hidden space-y-4">
+        <h2 class="text-sm font-semibold text-zinc-200">4. ¿Has utilizado fármacos orales (pastillas) anteriormente y has obtenido el resultado esperado?</h2>
+        <div class="space-y-2">
+          <button type="button" onclick="selectAnswer(4, 'Sí, me han funcionado bien')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Sí, me han funcionado bien cuando los he necesitado</button>
+          <button type="button" onclick="selectAnswer(4, 'Efecto no esperado o dudas')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Los he probado, pero siento que el efecto no es el esperado o me generan dudas</button>
+          <button type="button" onclick="selectAnswer(4, 'Nunca los he probado')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">No, nunca los he probado y prefiero conocer cómo funcionan</button>
+          <button type="button" onclick="selectAnswer(4, 'Prefiero evitar pastillas')" class="w-full text-left p-3 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-brandCyan hover:bg-zinc-800/80 transition text-sm">Prefiero evitar pastillas y buscar alternativas diferentes</button>
+        </div>
+      </div>
+
     </form>
 
     <!-- Resultados -->
@@ -92,23 +108,21 @@
   </div>
 
   <script>
-    // Variables para guardar las respuestas
     let userAnswers = {};
-    
-    // Número configurado con código de país
     const phoneNumber = "51982676852"; 
 
     function selectAnswer(step, answer) {
       userAnswers[`p${step}`] = answer;
 
-      if (step < 3) {
+      if (step < 4) {
         document.getElementById(`step-${step}`).classList.add('hidden');
         const next = step + 1;
         document.getElementById(`step-${next}`).classList.remove('hidden');
         
         const progressBar = document.getElementById('progress-bar');
-        if (next === 2) progressBar.style.width = '66%';
-        if (next === 3) progressBar.style.width = '100%';
+        if (next === 2) progressBar.style.width = '50%';
+        if (next === 3) progressBar.style.width = '75%';
+        if (next === 4) progressBar.style.width = '100%';
       } else {
         showResults();
       }
@@ -119,11 +133,11 @@
       document.getElementById('progress-container').classList.add('hidden');
       document.getElementById('results').classList.remove('hidden');
 
-      // Crear el mensaje predeterminado con los datos recolectados
-      const textMessage = `Hola, completé el test de orientación:\n` +
+      const textMessage = `Hola, completé el test de orientación de Caverfar:\n` +
         `- Frecuencia: ${userAnswers.p1}\n` +
         `- Causa principal: ${userAnswers.p2}\n` +
-        `- Lo que busco: ${userAnswers.p3}\n\n` +
+        `- Lo que busco: ${userAnswers.p3}\n` +
+        `- Experiencia con pastillas: ${userAnswers.p4}\n\n` +
         `Me gustaría recibir asesoría privada sobre las opciones disponibles.`;
 
       const encodedMessage = encodeURIComponent(textMessage);
